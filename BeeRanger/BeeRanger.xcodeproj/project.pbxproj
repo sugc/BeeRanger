@@ -1,0 +1,637 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		89BB37F5224D14D700AD74CD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 89BB37F4224D14D700AD74CD /* AppDelegate.m */; };
+		89BB37F8224D14D700AD74CD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89BB37F7224D14D700AD74CD /* ViewController.m */; };
+		89BB37FB224D14D700AD74CD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89BB37F9224D14D700AD74CD /* Main.storyboard */; };
+		89BB37FD224D14D800AD74CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89BB37FC224D14D800AD74CD /* Assets.xcassets */; };
+		89BB3800224D14D800AD74CD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89BB37FE224D14D800AD74CD /* LaunchScreen.storyboard */; };
+		89BB3803224D14D800AD74CD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 89BB3802224D14D800AD74CD /* main.m */; };
+		89BB380D224D14D800AD74CD /* BeeRangerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 89BB380C224D14D800AD74CD /* BeeRangerTests.m */; };
+		89BB3818224D14D800AD74CD /* BeeRangerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 89BB3817224D14D800AD74CD /* BeeRangerUITests.m */; };
+		9D8B9FB909F5564E2723741C /* libPods-BeeRanger.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0001DC2EBBBD9E10882158F7 /* libPods-BeeRanger.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		89BB3809224D14D800AD74CD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 89BB37E8224D14D700AD74CD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 89BB37EF224D14D700AD74CD;
+			remoteInfo = BeeRanger;
+		};
+		89BB3814224D14D800AD74CD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 89BB37E8224D14D700AD74CD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 89BB37EF224D14D700AD74CD;
+			remoteInfo = BeeRanger;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0001DC2EBBBD9E10882158F7 /* libPods-BeeRanger.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BeeRanger.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		18371F2D8574E42C1F17EBB3 /* Pods-BeeRanger.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeeRanger.debug.xcconfig"; path = "Target Support Files/Pods-BeeRanger/Pods-BeeRanger.debug.xcconfig"; sourceTree = "<group>"; };
+		89BB37F0224D14D700AD74CD /* BeeRanger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BeeRanger.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		89BB37F3224D14D700AD74CD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		89BB37F4224D14D700AD74CD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		89BB37F6224D14D700AD74CD /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		89BB37F7224D14D700AD74CD /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		89BB37FA224D14D700AD74CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		89BB37FC224D14D800AD74CD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		89BB37FF224D14D800AD74CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		89BB3801224D14D800AD74CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		89BB3802224D14D800AD74CD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		89BB3808224D14D800AD74CD /* BeeRangerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BeeRangerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		89BB380C224D14D800AD74CD /* BeeRangerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BeeRangerTests.m; sourceTree = "<group>"; };
+		89BB380E224D14D800AD74CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		89BB3813224D14D800AD74CD /* BeeRangerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BeeRangerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		89BB3817224D14D800AD74CD /* BeeRangerUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BeeRangerUITests.m; sourceTree = "<group>"; };
+		89BB3819224D14D800AD74CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BC8DD236F1F4934CE6E34E6C /* Pods-BeeRanger.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeeRanger.release.xcconfig"; path = "Target Support Files/Pods-BeeRanger/Pods-BeeRanger.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		89BB37ED224D14D700AD74CD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9D8B9FB909F5564E2723741C /* libPods-BeeRanger.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		89BB3805224D14D800AD74CD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		89BB3810224D14D800AD74CD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		46342A0DF6EC20DC2A53BCF3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0001DC2EBBBD9E10882158F7 /* libPods-BeeRanger.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		727D220C16D6A437A07F266A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				18371F2D8574E42C1F17EBB3 /* Pods-BeeRanger.debug.xcconfig */,
+				BC8DD236F1F4934CE6E34E6C /* Pods-BeeRanger.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		89BB37E7224D14D700AD74CD = {
+			isa = PBXGroup;
+			children = (
+				89BB37F2224D14D700AD74CD /* BeeRanger */,
+				89BB380B224D14D800AD74CD /* BeeRangerTests */,
+				89BB3816224D14D800AD74CD /* BeeRangerUITests */,
+				89BB37F1224D14D700AD74CD /* Products */,
+				727D220C16D6A437A07F266A /* Pods */,
+				46342A0DF6EC20DC2A53BCF3 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		89BB37F1224D14D700AD74CD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				89BB37F0224D14D700AD74CD /* BeeRanger.app */,
+				89BB3808224D14D800AD74CD /* BeeRangerTests.xctest */,
+				89BB3813224D14D800AD74CD /* BeeRangerUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		89BB37F2224D14D700AD74CD /* BeeRanger */ = {
+			isa = PBXGroup;
+			children = (
+				89BB37F3224D14D700AD74CD /* AppDelegate.h */,
+				89BB37F4224D14D700AD74CD /* AppDelegate.m */,
+				89BB37F6224D14D700AD74CD /* ViewController.h */,
+				89BB37F7224D14D700AD74CD /* ViewController.m */,
+				89BB37F9224D14D700AD74CD /* Main.storyboard */,
+				89BB37FC224D14D800AD74CD /* Assets.xcassets */,
+				89BB37FE224D14D800AD74CD /* LaunchScreen.storyboard */,
+				89BB3801224D14D800AD74CD /* Info.plist */,
+				89BB3802224D14D800AD74CD /* main.m */,
+			);
+			path = BeeRanger;
+			sourceTree = "<group>";
+		};
+		89BB380B224D14D800AD74CD /* BeeRangerTests */ = {
+			isa = PBXGroup;
+			children = (
+				89BB380C224D14D800AD74CD /* BeeRangerTests.m */,
+				89BB380E224D14D800AD74CD /* Info.plist */,
+			);
+			path = BeeRangerTests;
+			sourceTree = "<group>";
+		};
+		89BB3816224D14D800AD74CD /* BeeRangerUITests */ = {
+			isa = PBXGroup;
+			children = (
+				89BB3817224D14D800AD74CD /* BeeRangerUITests.m */,
+				89BB3819224D14D800AD74CD /* Info.plist */,
+			);
+			path = BeeRangerUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		89BB37EF224D14D700AD74CD /* BeeRanger */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 89BB381C224D14D800AD74CD /* Build configuration list for PBXNativeTarget "BeeRanger" */;
+			buildPhases = (
+				B171C75F2373F55B0DD0A4F1 /* [CP] Check Pods Manifest.lock */,
+				89BB37EC224D14D700AD74CD /* Sources */,
+				89BB37ED224D14D700AD74CD /* Frameworks */,
+				89BB37EE224D14D700AD74CD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BeeRanger;
+			productName = BeeRanger;
+			productReference = 89BB37F0224D14D700AD74CD /* BeeRanger.app */;
+			productType = "com.apple.product-type.application";
+		};
+		89BB3807224D14D800AD74CD /* BeeRangerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 89BB381F224D14D800AD74CD /* Build configuration list for PBXNativeTarget "BeeRangerTests" */;
+			buildPhases = (
+				89BB3804224D14D800AD74CD /* Sources */,
+				89BB3805224D14D800AD74CD /* Frameworks */,
+				89BB3806224D14D800AD74CD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				89BB380A224D14D800AD74CD /* PBXTargetDependency */,
+			);
+			name = BeeRangerTests;
+			productName = BeeRangerTests;
+			productReference = 89BB3808224D14D800AD74CD /* BeeRangerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		89BB3812224D14D800AD74CD /* BeeRangerUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 89BB3822224D14D800AD74CD /* Build configuration list for PBXNativeTarget "BeeRangerUITests" */;
+			buildPhases = (
+				89BB380F224D14D800AD74CD /* Sources */,
+				89BB3810224D14D800AD74CD /* Frameworks */,
+				89BB3811224D14D800AD74CD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				89BB3815224D14D800AD74CD /* PBXTargetDependency */,
+			);
+			name = BeeRangerUITests;
+			productName = BeeRangerUITests;
+			productReference = 89BB3813224D14D800AD74CD /* BeeRangerUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		89BB37E8224D14D700AD74CD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = sugc;
+				TargetAttributes = {
+					89BB37EF224D14D700AD74CD = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					89BB3807224D14D800AD74CD = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = 89BB37EF224D14D700AD74CD;
+					};
+					89BB3812224D14D800AD74CD = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = 89BB37EF224D14D700AD74CD;
+					};
+				};
+			};
+			buildConfigurationList = 89BB37EB224D14D700AD74CD /* Build configuration list for PBXProject "BeeRanger" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 89BB37E7224D14D700AD74CD;
+			productRefGroup = 89BB37F1224D14D700AD74CD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				89BB37EF224D14D700AD74CD /* BeeRanger */,
+				89BB3807224D14D800AD74CD /* BeeRangerTests */,
+				89BB3812224D14D800AD74CD /* BeeRangerUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		89BB37EE224D14D700AD74CD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				89BB3800224D14D800AD74CD /* LaunchScreen.storyboard in Resources */,
+				89BB37FD224D14D800AD74CD /* Assets.xcassets in Resources */,
+				89BB37FB224D14D700AD74CD /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		89BB3806224D14D800AD74CD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		89BB3811224D14D800AD74CD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B171C75F2373F55B0DD0A4F1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BeeRanger-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		89BB37EC224D14D700AD74CD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				89BB37F8224D14D700AD74CD /* ViewController.m in Sources */,
+				89BB3803224D14D800AD74CD /* main.m in Sources */,
+				89BB37F5224D14D700AD74CD /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		89BB3804224D14D800AD74CD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				89BB380D224D14D800AD74CD /* BeeRangerTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		89BB380F224D14D800AD74CD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				89BB3818224D14D800AD74CD /* BeeRangerUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		89BB380A224D14D800AD74CD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 89BB37EF224D14D700AD74CD /* BeeRanger */;
+			targetProxy = 89BB3809224D14D800AD74CD /* PBXContainerItemProxy */;
+		};
+		89BB3815224D14D800AD74CD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 89BB37EF224D14D700AD74CD /* BeeRanger */;
+			targetProxy = 89BB3814224D14D800AD74CD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		89BB37F9224D14D700AD74CD /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				89BB37FA224D14D700AD74CD /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		89BB37FE224D14D800AD74CD /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				89BB37FF224D14D800AD74CD /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		89BB381A224D14D800AD74CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		89BB381B224D14D800AD74CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		89BB381D224D14D800AD74CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 18371F2D8574E42C1F17EBB3 /* Pods-BeeRanger.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4D8QBLQTY5;
+				INFOPLIST_FILE = BeeRanger/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sugc.magic.BeeRanger;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		89BB381E224D14D800AD74CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BC8DD236F1F4934CE6E34E6C /* Pods-BeeRanger.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4D8QBLQTY5;
+				INFOPLIST_FILE = BeeRanger/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sugc.magic.BeeRanger;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		89BB3820224D14D800AD74CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4D8QBLQTY5;
+				INFOPLIST_FILE = BeeRangerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sugc.magic.BeeRangerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BeeRanger.app/BeeRanger";
+			};
+			name = Debug;
+		};
+		89BB3821224D14D800AD74CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4D8QBLQTY5;
+				INFOPLIST_FILE = BeeRangerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sugc.magic.BeeRangerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BeeRanger.app/BeeRanger";
+			};
+			name = Release;
+		};
+		89BB3823224D14D800AD74CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4D8QBLQTY5;
+				INFOPLIST_FILE = BeeRangerUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sugc.magic.BeeRangerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = BeeRanger;
+			};
+			name = Debug;
+		};
+		89BB3824224D14D800AD74CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4D8QBLQTY5;
+				INFOPLIST_FILE = BeeRangerUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sugc.magic.BeeRangerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = BeeRanger;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		89BB37EB224D14D700AD74CD /* Build configuration list for PBXProject "BeeRanger" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				89BB381A224D14D800AD74CD /* Debug */,
+				89BB381B224D14D800AD74CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		89BB381C224D14D800AD74CD /* Build configuration list for PBXNativeTarget "BeeRanger" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				89BB381D224D14D800AD74CD /* Debug */,
+				89BB381E224D14D800AD74CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		89BB381F224D14D800AD74CD /* Build configuration list for PBXNativeTarget "BeeRangerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				89BB3820224D14D800AD74CD /* Debug */,
+				89BB3821224D14D800AD74CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		89BB3822224D14D800AD74CD /* Build configuration list for PBXNativeTarget "BeeRangerUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				89BB3823224D14D800AD74CD /* Debug */,
+				89BB3824224D14D800AD74CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 89BB37E8224D14D700AD74CD /* Project object */;
+}
