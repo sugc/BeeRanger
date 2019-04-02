@@ -5,5 +5,10 @@ target  'BeeRanger' do
 pod 'MBProgressHUD'
 pod 'AFNetworking'
 
+#是否使用谷歌地图
+pod 'AMap2DMap'
+pod 'AMapSearch'
+pod 'AMapLocation'
+
 end
 

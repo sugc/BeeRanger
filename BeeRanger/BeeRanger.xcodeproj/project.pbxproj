@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8900916E2253A4AC005E7A81 /* UIView+FrameAccessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 8900916D2253A4AB005E7A81 /* UIView+FrameAccessor.m */; };
+		8968F0A322527A0E00073595 /* NewWorkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8968F0A222527A0E00073595 /* NewWorkManager.m */; };
 		89BB37F5224D14D700AD74CD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 89BB37F4224D14D700AD74CD /* AppDelegate.m */; };
 		89BB37F8224D14D700AD74CD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89BB37F7224D14D700AD74CD /* ViewController.m */; };
 		89BB37FB224D14D700AD74CD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89BB37F9224D14D700AD74CD /* Main.storyboard */; };
@@ -38,6 +40,11 @@
 /* Begin PBXFileReference section */
 		0001DC2EBBBD9E10882158F7 /* libPods-BeeRanger.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BeeRanger.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		18371F2D8574E42C1F17EBB3 /* Pods-BeeRanger.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeeRanger.debug.xcconfig"; path = "Target Support Files/Pods-BeeRanger/Pods-BeeRanger.debug.xcconfig"; sourceTree = "<group>"; };
+		8900916C2253A4AB005E7A81 /* UIView+FrameAccessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+FrameAccessor.h"; sourceTree = "<group>"; };
+		8900916D2253A4AB005E7A81 /* UIView+FrameAccessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+FrameAccessor.m"; sourceTree = "<group>"; };
+		8900916F2253A4EC005E7A81 /* UtilsDef.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UtilsDef.h; sourceTree = "<group>"; };
+		8968F0A1225276A900073595 /* NewWorkManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewWorkManager.h; sourceTree = "<group>"; };
+		8968F0A222527A0E00073595 /* NewWorkManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewWorkManager.m; sourceTree = "<group>"; };
 		89BB37F0224D14D700AD74CD /* BeeRanger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BeeRanger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89BB37F3224D14D700AD74CD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		89BB37F4224D14D700AD74CD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -97,8 +104,16 @@
 				18371F2D8574E42C1F17EBB3 /* Pods-BeeRanger.debug.xcconfig */,
 				BC8DD236F1F4934CE6E34E6C /* Pods-BeeRanger.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		8968F0A02252763100073595 /* NewWorkManager */ = {
+			isa = PBXGroup;
+			children = (
+				8968F0A1225276A900073595 /* NewWorkManager.h */,
+				8968F0A222527A0E00073595 /* NewWorkManager.m */,
+			);
+			path = NewWorkManager;
 			sourceTree = "<group>";
 		};
 		89BB37E7224D14D700AD74CD = {
@@ -126,6 +141,7 @@
 		89BB37F2224D14D700AD74CD /* BeeRanger */ = {
 			isa = PBXGroup;
 			children = (
+				8968F0A02252763100073595 /* NewWorkManager */,
 				89BB37F3224D14D700AD74CD /* AppDelegate.h */,
 				89BB37F4224D14D700AD74CD /* AppDelegate.m */,
 				89BB37F6224D14D700AD74CD /* ViewController.h */,
@@ -135,6 +151,9 @@
 				89BB37FE224D14D800AD74CD /* LaunchScreen.storyboard */,
 				89BB3801224D14D800AD74CD /* Info.plist */,
 				89BB3802224D14D800AD74CD /* main.m */,
+				8900916C2253A4AB005E7A81 /* UIView+FrameAccessor.h */,
+				8900916D2253A4AB005E7A81 /* UIView+FrameAccessor.m */,
+				8900916F2253A4EC005E7A81 /* UtilsDef.h */,
 			);
 			path = BeeRanger;
 			sourceTree = "<group>";
@@ -313,9 +332,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8900916E2253A4AC005E7A81 /* UIView+FrameAccessor.m in Sources */,
 				89BB37F8224D14D700AD74CD /* ViewController.m in Sources */,
 				89BB3803224D14D800AD74CD /* main.m in Sources */,
 				89BB37F5224D14D700AD74CD /* AppDelegate.m in Sources */,
+				8968F0A322527A0E00073595 /* NewWorkManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
