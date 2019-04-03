@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8900916E2253A4AC005E7A81 /* UIView+FrameAccessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 8900916D2253A4AB005E7A81 /* UIView+FrameAccessor.m */; };
+		890091712253C709005E7A81 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 890091702253C709005E7A81 /* MapKit.framework */; };
 		8968F0A322527A0E00073595 /* NewWorkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8968F0A222527A0E00073595 /* NewWorkManager.m */; };
 		89BB37F5224D14D700AD74CD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 89BB37F4224D14D700AD74CD /* AppDelegate.m */; };
 		89BB37F8224D14D700AD74CD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89BB37F7224D14D700AD74CD /* ViewController.m */; };
@@ -43,6 +44,7 @@
 		8900916C2253A4AB005E7A81 /* UIView+FrameAccessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+FrameAccessor.h"; sourceTree = "<group>"; };
 		8900916D2253A4AB005E7A81 /* UIView+FrameAccessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+FrameAccessor.m"; sourceTree = "<group>"; };
 		8900916F2253A4EC005E7A81 /* UtilsDef.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UtilsDef.h; sourceTree = "<group>"; };
+		890091702253C709005E7A81 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		8968F0A1225276A900073595 /* NewWorkManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewWorkManager.h; sourceTree = "<group>"; };
 		8968F0A222527A0E00073595 /* NewWorkManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewWorkManager.m; sourceTree = "<group>"; };
 		89BB37F0224D14D700AD74CD /* BeeRanger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BeeRanger.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -69,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				890091712253C709005E7A81 /* MapKit.framework in Frameworks */,
 				9D8B9FB909F5564E2723741C /* libPods-BeeRanger.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -93,6 +96,7 @@
 		46342A0DF6EC20DC2A53BCF3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				890091702253C709005E7A81 /* MapKit.framework */,
 				0001DC2EBBBD9E10882158F7 /* libPods-BeeRanger.a */,
 			);
 			name = Frameworks;
@@ -244,6 +248,14 @@
 				TargetAttributes = {
 					89BB37EF224D14D700AD74CD = {
 						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					89BB3807224D14D800AD74CD = {
 						CreatedOnToolsVersion = 10.1;
