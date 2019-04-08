@@ -18,6 +18,9 @@
 		89BB3803224D14D800AD74CD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 89BB3802224D14D800AD74CD /* main.m */; };
 		89BB380D224D14D800AD74CD /* BeeRangerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 89BB380C224D14D800AD74CD /* BeeRangerTests.m */; };
 		89BB3818224D14D800AD74CD /* BeeRangerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 89BB3817224D14D800AD74CD /* BeeRangerUITests.m */; };
+		89D75DAE225A225C00DB2828 /* MTAFNetWorkingRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D75DAC225A225B00DB2828 /* MTAFNetWorkingRequest.m */; };
+		89D75DB1225A27B300DB2828 /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D75DB0225A27B300DB2828 /* LocationManager.m */; };
+		89D75DB4225A4D3400DB2828 /* StatusView.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D75DB3225A4D3400DB2828 /* StatusView.m */; };
 		9D8B9FB909F5564E2723741C /* libPods-BeeRanger.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0001DC2EBBBD9E10882158F7 /* libPods-BeeRanger.a */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +66,12 @@
 		89BB3813224D14D800AD74CD /* BeeRangerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BeeRangerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		89BB3817224D14D800AD74CD /* BeeRangerUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BeeRangerUITests.m; sourceTree = "<group>"; };
 		89BB3819224D14D800AD74CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		89D75DAC225A225B00DB2828 /* MTAFNetWorkingRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTAFNetWorkingRequest.m; sourceTree = "<group>"; };
+		89D75DAD225A225C00DB2828 /* MTAFNetWorkingRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTAFNetWorkingRequest.h; sourceTree = "<group>"; };
+		89D75DAF225A27A500DB2828 /* LocationManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationManager.h; sourceTree = "<group>"; };
+		89D75DB0225A27B300DB2828 /* LocationManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationManager.m; sourceTree = "<group>"; };
+		89D75DB2225A4D2500DB2828 /* StatusView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StatusView.h; sourceTree = "<group>"; };
+		89D75DB3225A4D3400DB2828 /* StatusView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StatusView.m; sourceTree = "<group>"; };
 		BC8DD236F1F4934CE6E34E6C /* Pods-BeeRanger.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeeRanger.release.xcconfig"; path = "Target Support Files/Pods-BeeRanger/Pods-BeeRanger.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -116,6 +125,8 @@
 			children = (
 				8968F0A1225276A900073595 /* NewWorkManager.h */,
 				8968F0A222527A0E00073595 /* NewWorkManager.m */,
+				89D75DAF225A27A500DB2828 /* LocationManager.h */,
+				89D75DB0225A27B300DB2828 /* LocationManager.m */,
 			);
 			path = NewWorkManager;
 			sourceTree = "<group>";
@@ -155,9 +166,13 @@
 				89BB37FE224D14D800AD74CD /* LaunchScreen.storyboard */,
 				89BB3801224D14D800AD74CD /* Info.plist */,
 				89BB3802224D14D800AD74CD /* main.m */,
+				89D75DAD225A225C00DB2828 /* MTAFNetWorkingRequest.h */,
+				89D75DAC225A225B00DB2828 /* MTAFNetWorkingRequest.m */,
 				8900916C2253A4AB005E7A81 /* UIView+FrameAccessor.h */,
 				8900916D2253A4AB005E7A81 /* UIView+FrameAccessor.m */,
 				8900916F2253A4EC005E7A81 /* UtilsDef.h */,
+				89D75DB2225A4D2500DB2828 /* StatusView.h */,
+				89D75DB3225A4D3400DB2828 /* StatusView.m */,
 			);
 			path = BeeRanger;
 			sourceTree = "<group>";
@@ -345,9 +360,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				8900916E2253A4AC005E7A81 /* UIView+FrameAccessor.m in Sources */,
+				89D75DB1225A27B300DB2828 /* LocationManager.m in Sources */,
+				89D75DAE225A225C00DB2828 /* MTAFNetWorkingRequest.m in Sources */,
 				89BB37F8224D14D700AD74CD /* ViewController.m in Sources */,
 				89BB3803224D14D800AD74CD /* main.m in Sources */,
 				89BB37F5224D14D700AD74CD /* AppDelegate.m in Sources */,
+				89D75DB4225A4D3400DB2828 /* StatusView.m in Sources */,
 				8968F0A322527A0E00073595 /* NewWorkManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

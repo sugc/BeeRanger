@@ -8,11 +8,21 @@
 
 #import "NewWorkManager.h"
 #import <AFNetworking.h>
+#import <AdSupport/ASIdentifierManager.h>
+#import "MTAFNetWorkingRequest.h"
+#import "LocationManager.h"
+
+static NSString *const host = @"http://192.168.199.171:5000";
 
 @interface NewWorkManager()
     
 @property (nonatomic, strong) NSTimer *timer;
-    
+
+@property (nonatomic, copy) NSString *userName;
+
+@property (nonatomic, assign) BOOL isAskingHelp; //是否正在寻求帮助
+
+
 
 @end
 
@@ -32,7 +42,8 @@
     self = [super init];
     if (self) {
         //初始化
-        
+        _userName = [NewWorkManager idfa];
+        [self starRequest];
     }
     return self;
 }
@@ -43,31 +54,34 @@
         [_timer invalidate];
     }
     
-    _timer = [NSTimer timerWithTimeInterval:4 repeats:YES block:^(NSTimer * _Nonnull timer) {
-        [self sendRequest];
+    
+    _timer = [NSTimer scheduledTimerWithTimeInterval:4 repeats:YES block:^(NSTimer * _Nonnull timer) {
+         [self sendRequest];
     }];
-    [_timer fire];
 }
     
 - (void)sendRequest {
-    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
-    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
     
-    NSURL *URL = [NSURL URLWithString:@"http://httpbin.org/get"];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:URL];
-    request.HTTPMethod = @"POST";
     
-    NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
-        if (error) {
-            NSLog(@"Error: %@", error);
-            
-        } else {
-            NSLog(@"%@ %@", response, responseObject);
-            
-            //解析数据
-        }
-    }];
-    [dataTask resume];
+    CLLocation *location = [LocationManager shareInstance].location;
+    NSDictionary *param = @{@"userName":_userName,
+                            @"lng":@(location.coordinate.longitude),
+                            @"lat":@(location.coordinate.latitude)};
+    
+    NSString *url = [host stringByAppendingPathComponent:@"gethelpmsg"];
+    [MTAFNetWorkingRequest requestWithType:POSTRequest
+                                       url:url
+                                    header:nil
+                                parameters:param
+                            successHandler:^(NSDictionary *resultDictionary) {
+                                
+                                
+                                if ([self.delegate respondsToSelector:@selector(updateStatus:isIntask:msg:)]) {
+                                    [_delegate updateStatus:TaskStatusRequest isIntask:YES msg:resultDictionary];
+                                }
+                            } failureHandler:^(NSURLResponse *response, NSError *error) {
+                                NSLog(@"Error: %@", error);
+                            }];
 }
     
     
@@ -81,28 +95,37 @@
 - (void)updateHelpMsg {
     
     //设置参数
-    //
+    if (_isAskingHelp || _isInTask) {
+        return;
+    }
     
-    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
-    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
+    _isAskingHelp = YES;
+    CLLocation *location = [LocationManager shareInstance].location;
+    NSDictionary *param = @{@"userName":_userName,
+                            @"lng":@(location.coordinate.longitude),
+                            @"lat":@(location.coordinate.latitude)};
     
-    NSURL *URL = [NSURL URLWithString:@"http://httpbin.org/get"];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:URL];
-    request.HTTPMethod = @"POST";
-//    request.HTTPBody
-    
-    NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
-        if (error) {
-            NSLog(@"Error: %@", error);
-            
-        } else {
-            NSLog(@"%@ %@", response, responseObject);
-            
-            //解析数据
-        }
-    }];
-    [dataTask resume];
+    NSString *url = [host stringByAppendingPathComponent:@"updatehtlpmsg"];
+    [MTAFNetWorkingRequest requestWithType:POSTRequest
+                                       url:url
+                                    header:nil
+                                parameters:param
+                            successHandler:^(NSDictionary *resultDictionary) {
+                                if ([self.delegate respondsToSelector:@selector(updateStatus:isIntask:msg:)]) {
+                                    [_delegate updateStatus:TaskStatusRequest isIntask:NO msg:resultDictionary];
+                                }
+                                
+                            } failureHandler:^(NSURLResponse *response, NSError *error) {
+                                NSLog(@"Error: %@", error);
+                                _isAskingHelp = NO;
+                            }];
     
 }
-    
+
+
+
++ (NSString *)idfa {
+    return [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];
+}
+
 @end
