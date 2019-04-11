@@ -145,26 +145,15 @@
     }
 }
 
+- (void)resetMapViewToCenter {
+    [self setRegionWithCenter:[LocationManager shareInstance].location.coordinate];
+}
+
+
 
 - (void)updateStatus:(TaskStatus)status isIntask:(BOOL)isInTask msg:(NSDictionary *)msg {
-    //更新状态
-    switch (status) {
-        case TaskStatusRequest:
-            
-            break;
-            
-        case TaskStatusBegin:
-            
-            break;
-        case TaskStatusComplete:
-            
-            break;
-        case TaskStatusNone:
-            
-            break;
-        default:
-            break;
-    }
+    status = [msg[@"status"] integerValue];
+    [self.statusView changeToStatus:status msg:msg animate:YES];
 }
 
 //各种视图展示， UI相关

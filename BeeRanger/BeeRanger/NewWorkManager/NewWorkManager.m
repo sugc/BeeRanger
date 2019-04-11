@@ -15,13 +15,12 @@
 static NSString *const host = @"http://192.168.199.171:5000";
 
 @interface NewWorkManager()
-    
+
 @property (nonatomic, strong) NSTimer *timer;
 
 @property (nonatomic, copy) NSString *userName;
 
 @property (nonatomic, assign) BOOL isAskingHelp; //是否正在寻求帮助
-
 
 
 @end
@@ -37,17 +36,18 @@ static NSString *const host = @"http://192.168.199.171:5000";
     });
     return instance;
 }
-    
+
 - (instancetype)init {
     self = [super init];
     if (self) {
         //初始化
-        _userName = [NewWorkManager idfa];
+        NSString *idfa = [NewWorkManager idfa];
+        _userName = [@"L." stringByAppendingString:[idfa substringToIndex:4]];
         [self starRequest];
     }
     return self;
 }
-    
+
 //启动Timer定时请求
 - (void)starRequest {
     if (_timer) {
@@ -56,17 +56,18 @@ static NSString *const host = @"http://192.168.199.171:5000";
     
     
     _timer = [NSTimer scheduledTimerWithTimeInterval:4 repeats:YES block:^(NSTimer * _Nonnull timer) {
-         [self sendRequest];
+        [self sendRequest];
     }];
 }
-    
+
 - (void)sendRequest {
     
     
     CLLocation *location = [LocationManager shareInstance].location;
     NSDictionary *param = @{@"userName":_userName,
                             @"lng":@(location.coordinate.longitude),
-                            @"lat":@(location.coordinate.latitude)};
+                            @"lat":@(location.coordinate.latitude)
+                            };
     
     NSString *url = [host stringByAppendingPathComponent:@"gethelpmsg"];
     [MTAFNetWorkingRequest requestWithType:POSTRequest
@@ -74,17 +75,21 @@ static NSString *const host = @"http://192.168.199.171:5000";
                                     header:nil
                                 parameters:param
                             successHandler:^(NSDictionary *resultDictionary) {
-                                
+                                NSNumber *error = resultDictionary[@"error"];
+                                if (!error || [error integerValue] != 0) {
+                                    
+                                    return;
+                                }
                                 
                                 if ([self.delegate respondsToSelector:@selector(updateStatus:isIntask:msg:)]) {
-                                    [_delegate updateStatus:TaskStatusRequest isIntask:YES msg:resultDictionary];
+                                    [self.delegate updateStatus:TaskStatusNone isIntask:YES msg:resultDictionary];
                                 }
                             } failureHandler:^(NSURLResponse *response, NSError *error) {
                                 NSLog(@"Error: %@", error);
                             }];
 }
-    
-    
+
+
 - (void)stopRequst {
     if (_timer) {
         [_timer invalidate];
@@ -95,15 +100,17 @@ static NSString *const host = @"http://192.168.199.171:5000";
 - (void)updateHelpMsg {
     
     //设置参数
-    if (_isAskingHelp || _isInTask) {
-        return;
-    }
+//    if (_isAskingHelp || _isInTask) {
+//        return;
+//    }
     
     _isAskingHelp = YES;
     CLLocation *location = [LocationManager shareInstance].location;
     NSDictionary *param = @{@"userName":_userName,
                             @"lng":@(location.coordinate.longitude),
-                            @"lat":@(location.coordinate.latitude)};
+                            @"lat":@(location.coordinate.latitude),
+                            @"status":@(TaskStatusWaitingForReply)
+                            };
     
     NSString *url = [host stringByAppendingPathComponent:@"updatehtlpmsg"];
     [MTAFNetWorkingRequest requestWithType:POSTRequest
@@ -112,12 +119,15 @@ static NSString *const host = @"http://192.168.199.171:5000";
                                 parameters:param
                             successHandler:^(NSDictionary *resultDictionary) {
                                 if ([self.delegate respondsToSelector:@selector(updateStatus:isIntask:msg:)]) {
-                                    [_delegate updateStatus:TaskStatusRequest isIntask:NO msg:resultDictionary];
+                                    
+                                    [self.delegate updateStatus:TaskStatusWaitingForReply isIntask:NO msg:@{@"status":@(TaskStatusWaitingForReply)}];
                                 }
                                 
                             } failureHandler:^(NSURLResponse *response, NSError *error) {
                                 NSLog(@"Error: %@", error);
-                                _isAskingHelp = NO;
+                                self.isAskingHelp = NO;
+                                
+                                
                             }];
     
 }

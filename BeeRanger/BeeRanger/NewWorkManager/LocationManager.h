@@ -16,11 +16,15 @@
 - (void)locationManager:(LocationManager *)manager
      didUpdateLocations:(NSArray<CLLocation *> *)locations;
 
+- (void)resetMapViewToCenter;
+
 @end
 
 @interface LocationManager : NSObject
 
 + (instancetype)shareInstance;
+
+- (void)resetMapViewToCenter;
 
 @property (nonatomic, weak) id<LocationManagerDelegate> delegate;
 

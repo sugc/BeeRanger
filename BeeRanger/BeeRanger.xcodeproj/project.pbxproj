@@ -18,6 +18,7 @@
 		89BB3803224D14D800AD74CD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 89BB3802224D14D800AD74CD /* main.m */; };
 		89BB380D224D14D800AD74CD /* BeeRangerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 89BB380C224D14D800AD74CD /* BeeRangerTests.m */; };
 		89BB3818224D14D800AD74CD /* BeeRangerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 89BB3817224D14D800AD74CD /* BeeRangerUITests.m */; };
+		89CE66A5225FDED9007F1845 /* ximen.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 89CE66A4225FDED9007F1845 /* ximen.gpx */; };
 		89D75DAE225A225C00DB2828 /* MTAFNetWorkingRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D75DAC225A225B00DB2828 /* MTAFNetWorkingRequest.m */; };
 		89D75DB1225A27B300DB2828 /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D75DB0225A27B300DB2828 /* LocationManager.m */; };
 		89D75DB4225A4D3400DB2828 /* StatusView.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D75DB3225A4D3400DB2828 /* StatusView.m */; };
@@ -66,6 +67,7 @@
 		89BB3813224D14D800AD74CD /* BeeRangerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BeeRangerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		89BB3817224D14D800AD74CD /* BeeRangerUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BeeRangerUITests.m; sourceTree = "<group>"; };
 		89BB3819224D14D800AD74CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		89CE66A4225FDED9007F1845 /* ximen.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ximen.gpx; sourceTree = "<group>"; };
 		89D75DAC225A225B00DB2828 /* MTAFNetWorkingRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTAFNetWorkingRequest.m; sourceTree = "<group>"; };
 		89D75DAD225A225C00DB2828 /* MTAFNetWorkingRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTAFNetWorkingRequest.h; sourceTree = "<group>"; };
 		89D75DAF225A27A500DB2828 /* LocationManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationManager.h; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 		89BB37E7224D14D700AD74CD = {
 			isa = PBXGroup;
 			children = (
+				89CE66A4225FDED9007F1845 /* ximen.gpx */,
 				89BB37F2224D14D700AD74CD /* BeeRanger */,
 				89BB380B224D14D800AD74CD /* BeeRangerTests */,
 				89BB3816224D14D800AD74CD /* BeeRangerUITests */,
@@ -310,6 +313,7 @@
 				89BB3800224D14D800AD74CD /* LaunchScreen.storyboard in Resources */,
 				89BB37FD224D14D800AD74CD /* Assets.xcassets in Resources */,
 				89BB37FB224D14D700AD74CD /* Main.storyboard in Resources */,
+				89CE66A5225FDED9007F1845 /* ximen.gpx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

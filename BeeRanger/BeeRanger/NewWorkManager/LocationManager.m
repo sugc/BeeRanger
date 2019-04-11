@@ -55,4 +55,10 @@
     return _manager.location;
 }
 
+- (void)resetMapViewToCenter {
+    if ([_delegate respondsToSelector:@selector(resetMapViewToCenter)]) {
+        [_delegate resetMapViewToCenter];
+    }
+}
+
 @end

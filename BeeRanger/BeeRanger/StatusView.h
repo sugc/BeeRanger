@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "NewWorkManager/NewWorkManager.h"
 
 @interface StatusView : UIView
+
+- (void)changeToStatus:(TaskStatus)staus msg:(NSDictionary *)msg animate:(BOOL)animate;
 
 @end

@@ -9,18 +9,21 @@
 #import <Foundation/Foundation.h>
 
 
-typedef NS_ENUM(NSUInteger, TaskStatus) {
+typedef NS_ENUM(NSInteger, TaskStatus) {
     TaskStatusRequest = 0,
-    TaskStatusBegin = 1,
-    TaskStatusArrived = 2,
-    TaskStatusComplete = 3,
-    TaskStatusNone = 4
+    TaskStatusWaitingForReply = 1,
+    TaskStatusBegin = 2,
+    TaskStatusArrived = 3,
+    TaskStatusComplete = 4,
+    TaskStatusNone = 5
 };
+
 
 
 @protocol NetWorkDelegate <NSObject>
 
 - (void)updateStatus:(TaskStatus)status isIntask:(BOOL)isInTask msg:(NSDictionary *)msg;
+
 
 @end
 
@@ -31,5 +34,7 @@ typedef NS_ENUM(NSUInteger, TaskStatus) {
 @property (nonatomic, weak) id<NetWorkDelegate> delegate;
     
 + (instancetype)shareInstance;
+
+- (void)updateHelpMsg;
 
 @end

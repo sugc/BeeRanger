@@ -10,6 +10,7 @@
 #import "UIView+FrameAccessor.h"
 #import "UtilsDef.h"
 #import "NewWorkManager/NewWorkManager.h"
+#import "NewWorkManager/LocationManager.h"
 
 @interface StatusView ()
 
@@ -33,6 +34,8 @@
 
 @property (nonatomic, strong) UIView *contentView;
 
+@property (nonatomic, assign) TaskStatus status;
+
 @end
 
 @implementation StatusView
@@ -40,7 +43,8 @@
 - (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event {
     for (UIView *view in self.subviews) {
         if (CGRectContainsPoint(view.frame, point) && view.alpha > 0) {
-            return view;
+            CGPoint newPoint = [self convertPoint:point toView:view];
+            return [view hitTest:newPoint withEvent:event];
         }
     }
     return nil;
@@ -50,14 +54,24 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
+        _status = -1;
         [self layout];
-        [self refreshWithStatus:TaskStatusComplete msg:nil];
+        [self changeToStatus:TaskStatusRequest msg:nil animate:NO];
     }
     
     return self;
 }
 
 - (void)layout {
+    
+    _restButton = [[UIButton alloc] initWithFrame:CGRectMake(15, 200, 40, 40)];
+    [_restButton setBackgroundImage:[UIImage imageNamed:@"btn_map_reset"] forState:UIControlStateNormal];
+    [_restButton addTarget:self action:@selector(resetMap) forControlEvents:UIControlEventTouchUpInside];
+    _restButton.layer.cornerRadius = 20;
+    _restButton.layer.masksToBounds = YES;
+    _restButton.bottom = ScreenHeight - 200;
+    [self addSubview:_restButton];
+    
     _contentView = [[UIView alloc] init];
     _contentView.backgroundColor = [UIColor whiteColor];
     _contentView.frame = CGRectMake(10, self.height, self.width - 20, 40);
@@ -83,6 +97,13 @@
     _button1.layer.masksToBounds = YES;
     _button1.titleLabel.textColor = [UIColor whiteColor];
     [_contentView addSubview:_button1];
+    [_button1 addTarget:self action:@selector(clickBtn) forControlEvents:UIControlEventTouchUpInside];
+    
+    _button2 = [[UIButton alloc] init];
+    _button2.layer.cornerRadius = 5;
+    _button2.layer.masksToBounds = YES;
+    _button2.titleLabel.textColor = [UIColor whiteColor];
+//    [_contentView addSubview:_button2];
     
     _centerImageView = [[UIImageView alloc] init];
     [self addSubview:_centerImageView];
@@ -95,20 +116,52 @@
     _centerImageView.centerY = self.height / 2.0;
 }
 
+- (void)changeToStatus:(TaskStatus)staus msg:(NSDictionary *)msg animate:(BOOL)animate {
+    
+    if (staus <= self.status) {
+        return;
+    }
+    self.status = staus;
+    
+    if (!animate) {
+        [self refreshWithStatus:staus msg:msg];
+        _contentView.bottom = _contentView.bottom = self.height - 5 - 10;
+        _restButton.alpha = 1.0;
+        CGFloat space = 200 > (_contentView.height + 15) ? 200 : (_contentView.height + 15);
+        _restButton.bottom = self.height - space - 15;
+        return;
+    }
+    
+    [UIView animateWithDuration:0.3 animations:^{
+        self.contentView.top = self.height;
+        self.restButton.alpha = 0.0;
+    }completion:^(BOOL finished) {
+        [self refreshWithStatus:staus msg:msg];
+        CGFloat space = 200 > (self.contentView.height + 15) ? 200 : (self.contentView.height + 15);
+        self.restButton.bottom = self.height - space - 15;
+        [UIView animateWithDuration:0.3 animations:^{
+            self.contentView.bottom = self.height - 5 - 10;
+            self.restButton.alpha = 1.0;
+        }];
+    }];
+    
+}
+
+
 - (void)refreshWithStatus:(TaskStatus)status msg:(NSDictionary *)msg {
     //刷新状态
     _centerImageView.hidden = YES;
     _button1.size = CGSizeMake(120, 44);
     _button1.centerX = _contentView.width / 2.0;
     _titleLabel.textAlignment = NSTextAlignmentCenter;
+    _imageView.hidden = YES;
+    _leftImageView.hidden = YES;
     
-    if (status == TaskStatusNone) {
+    if (status == TaskStatusRequest) {
         _centerImageView.hidden = NO;
         _titleLabel.attributedText = [[NSAttributedString alloc] initWithString:@"您的电池电量过低!" attributes:@{
                                                                                                          NSFontAttributeName :[UIFont systemFontOfSize:16]
                                                       }];
-        _imageView.hidden = YES;
-        _leftImageView.hidden = YES;
         [_titleLabel sizeToFit];
         _titleLabel.top = 40;
         _titleLabel.centerX = _contentView.width / 2.0;
@@ -124,6 +177,27 @@
          _centerImageView.centerY = (self.height - _contentView.height )/ 2.0;
     }
     
+    if (status == TaskStatusWaitingForReply) {
+        //等待应答
+        _imageView.image = [UIImage imageNamed:@"status_in_help"];
+        _imageView.width = 108;
+        _imageView.height = 38;
+        _imageView.centerX = _contentView.width / 2.0;
+        _imageView.top = 40;
+        _imageView.contentMode = UIViewContentModeScaleAspectFit;
+        _imageView.hidden = NO;
+        _titleLabel.attributedText = [[NSAttributedString alloc] initWithString:@"正在等待救援" attributes:@{
+                                                                                                                           NSFontAttributeName :[UIFont systemFontOfSize:16]
+                                                                                                                           }];
+        [_titleLabel sizeToFit];
+        _titleLabel.top = _imageView.bottom + 15;
+        _titleLabel.centerX = _contentView.width / 2.0;
+        [_button1 setBackgroundImage:[UIImage imageNamed:@"button_in_help"] forState:UIControlStateNormal];
+        [_button1 setTitle:@"取消求救" forState:UIControlStateNormal];
+        _button1.top = _titleLabel.bottom + 20;
+        _contentView.height = _button1.bottom + 20;
+    }
+    
     if (status == TaskStatusBegin) {
         //任务开始
         _imageView.image = [UIImage imageNamed:@"status_in_help"];
@@ -132,9 +206,11 @@
         _imageView.centerX = _contentView.width / 2.0;
         _imageView.top = 40;
         _imageView.contentMode = UIViewContentModeScaleAspectFit;
+        _imageView.hidden = NO;
         _titleLabel.attributedText = [[NSAttributedString alloc] initWithString:@"骑士L72.628正在前往救援\n大约需要5分钟到达" attributes:@{
                                                                                                           NSFontAttributeName :[UIFont systemFontOfSize:16]
                                                                                                           }];
+        _titleLabel.width = 200;
         [_titleLabel sizeToFit];
         _titleLabel.top = _imageView.bottom + 15;
         _titleLabel.centerX = _contentView.width / 2.0;
@@ -142,7 +218,6 @@
         [_button1 setTitle:@"取消求救" forState:UIControlStateNormal];
         _button1.top = _titleLabel.bottom + 20;
         _contentView.height = _button1.bottom + 20;
-         _contentView.bottom = self.height - 5 - 10;
     }
     
     //到达
@@ -153,6 +228,7 @@
         _imageView.centerX = _contentView.width / 2.0;
         _imageView.top = 40;
         _imageView.contentMode = UIViewContentModeScaleAspectFit;
+        _imageView.hidden = NO;
         _titleLabel.attributedText = [[NSAttributedString alloc] initWithString:@"骑士L72.628已到达" attributes:@{
                                                                                                                            NSFontAttributeName :[UIFont systemFontOfSize:16]
                                                                                                                            }];
@@ -163,7 +239,6 @@
         [_button1 setTitle:@"取消求救" forState:UIControlStateNormal];
         _button1.top = _titleLabel.bottom + 20;
         _contentView.height = _button1.bottom + 20;
-        _contentView.bottom = self.height - 5 - 10;
     }
     
     //完成
@@ -174,6 +249,7 @@
         _imageView.centerX = _contentView.width / 2.0;
         _imageView.top = 40;
         _imageView.contentMode = UIViewContentModeScaleAspectFit;
+        _imageView.hidden = NO;
         _titleLabel.attributedText = [[NSAttributedString alloc] initWithString:@"恭喜您完成交换！" attributes:@{
                                                                                                                            NSFontAttributeName :[UIFont systemFontOfSize:16]
                                                                                                                            }];
@@ -181,13 +257,21 @@
         _titleLabel.top = _imageView.bottom + 15;
         _titleLabel.centerX = _contentView.width / 2.0;
         [_button1 setBackgroundImage:[UIImage imageNamed:@"button_in_help"] forState:UIControlStateNormal];
-        [_button1 setTitle:@"取消求救" forState:UIControlStateNormal];
+        [_button1 setTitle:@"分享" forState:UIControlStateNormal];
         _button1.top = _titleLabel.bottom + 20;
         _contentView.height = _button1.bottom + 20;
-        _contentView.bottom = self.height - 5 - 10;
     }
+    
+    
 }
 
+- (void)resetMap {
+     [[LocationManager shareInstance] resetMapViewToCenter];
+}
+
+- (void)clickBtn {
+    [[NewWorkManager shareInstance] updateHelpMsg];
+}
 
 
 
