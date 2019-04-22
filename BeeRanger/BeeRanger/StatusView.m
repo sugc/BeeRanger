@@ -34,7 +34,6 @@
 
 @property (nonatomic, strong) UIView *contentView;
 
-@property (nonatomic, assign) TaskStatus status;
 
 @end
 

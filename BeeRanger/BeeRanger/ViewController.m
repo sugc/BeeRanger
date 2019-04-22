@@ -101,6 +101,8 @@
     
     _statusView = [[StatusView alloc] initWithFrame:_mapContentView.frame];
     [self.view addSubview:_statusView];
+    
+    [avatarBtn addTarget:self action:@selector(goNextForce) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)addMapView {    
@@ -127,7 +129,7 @@
     [self.mapView setRegion:region animated:YES];
 }
 
-
+//
 - (void)showGuysNeedHelp {
     //显示需要帮助的人
     
@@ -159,5 +161,13 @@
 //各种视图展示， UI相关
 
 
+//强制进入下一步
+- (void)goNextForce {
+    TaskStatus status = self.statusView.status + 1;
+    if (status >= TaskStatusNone) {
+        status = TaskStatusRequest;
+    }
+    [self.statusView changeToStatus:status msg:nil animate:YES];
+}
 
 @end

@@ -11,6 +11,8 @@
 
 @interface StatusView : UIView
 
+@property (nonatomic, assign) TaskStatus status;
+
 - (void)changeToStatus:(TaskStatus)staus msg:(NSDictionary *)msg animate:(BOOL)animate;
 
 @end
