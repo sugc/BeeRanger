@@ -28,6 +28,8 @@
 
 @property (nonatomic, strong) UIImageView *centerImageView;
 
+@property (nonatomic, strong) UIImageView *rightImageView;
+
 @property (nonatomic, strong) UILabel *titleLabel;
 
 @property (nonatomic, strong) UIView *backView;
@@ -63,6 +65,7 @@
 
 - (void)layout {
     
+    
     _restButton = [[UIButton alloc] initWithFrame:CGRectMake(15, 200, 40, 40)];
     [_restButton setBackgroundImage:[UIImage imageNamed:@"btn_map_reset"] forState:UIControlStateNormal];
     [_restButton addTarget:self action:@selector(resetMap) forControlEvents:UIControlEventTouchUpInside];
@@ -75,6 +78,15 @@
     _contentView.backgroundColor = [UIColor whiteColor];
     _contentView.frame = CGRectMake(10, self.height, self.width - 20, 40);
     [self addSubview:_contentView];
+    
+    _rightImageView = [[UIImageView alloc] init];
+    _rightImageView.image = [UIImage imageNamed:@"img_phone_call"];
+    _rightImageView.width = 47;
+    _rightImageView.height = 12;
+    _rightImageView.centerY = _leftImageView.centerY;
+    _rightImageView.right = _contentView.width - 30;
+    _rightImageView.hidden = NO;
+    [_contentView addSubview:_rightImageView];
     
     _shrinkBtn = [[UIButton alloc] initWithFrame:CGRectMake(_contentView.width - 20 - 10, 10, 20, 10)];
     [_shrinkBtn setBackgroundImage:[UIImage imageNamed:@"up_down_arrow"] forState:UIControlStateNormal];
@@ -102,7 +114,7 @@
     _button2.layer.cornerRadius = 5;
     _button2.layer.masksToBounds = YES;
     _button2.titleLabel.textColor = [UIColor whiteColor];
-//    [_contentView addSubview:_button2];
+    
     
     _centerImageView = [[UIImageView alloc] init];
     [self addSubview:_centerImageView];
@@ -155,11 +167,12 @@
     _titleLabel.textAlignment = NSTextAlignmentCenter;
     _imageView.hidden = YES;
     _leftImageView.hidden = YES;
+    _rightImageView.hidden = YES;
     
     if (status == TaskStatusRequest) {
         _centerImageView.hidden = NO;
-        _titleLabel.attributedText = [[NSAttributedString alloc] initWithString:@"您的电池电量过低!" attributes:@{
-                                                                                                         NSFontAttributeName :[UIFont systemFontOfSize:16]
+        _titleLabel.attributedText = [[NSAttributedString alloc] initWithString:@"您的電池電量過低!" attributes:@{
+                                                                                                         NSFontAttributeName :[UIFont systemFontOfSize:18]
                                                       }];
         [_titleLabel sizeToFit];
         _titleLabel.top = 40;
@@ -185,8 +198,12 @@
         _imageView.top = 40;
         _imageView.contentMode = UIViewContentModeScaleAspectFit;
         _imageView.hidden = NO;
+        
+        _rightImageView.hidden = NO;
+        _rightImageView.centerY = _imageView.centerY;
+        
         _titleLabel.attributedText = [[NSAttributedString alloc] initWithString:@"正在等待救援" attributes:@{
-                                                                                                                           NSFontAttributeName :[UIFont systemFontOfSize:16]
+                                                                                                                           NSFontAttributeName :[UIFont systemFontOfSize:18]
                                                                                                                            }];
         [_titleLabel sizeToFit];
         _titleLabel.top = _imageView.bottom + 15;
@@ -206,10 +223,34 @@
         _imageView.top = 40;
         _imageView.contentMode = UIViewContentModeScaleAspectFit;
         _imageView.hidden = NO;
-        _titleLabel.attributedText = [[NSAttributedString alloc] initWithString:@"骑士L72.628正在前往救援\n大约需要5分钟到达" attributes:@{
-                                                                                                          NSFontAttributeName :[UIFont systemFontOfSize:16]
-                                                                                                          }];
-        _titleLabel.width = 200;
+        
+        _rightImageView.hidden = NO;
+        _rightImageView.centerY = _imageView.centerY;
+        
+        NSString *str = @"騎士L72.628正在前往救援\n大約需要 5 分鐘抵達";
+        NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc] initWithString:str attributes:@{
+                                                                                                                            NSFontAttributeName :[UIFont systemFontOfSize:18]
+                                                                                                                            }];
+        NSRange range = [str rangeOfString:@"大約需要 5 分鐘抵達"];
+        [attrStr setAttributes:@{
+                                 NSFontAttributeName :[UIFont systemFontOfSize:16],
+                                 NSForegroundColorAttributeName : [UIColor lightGrayColor]
+                                 } range:range];
+        
+        NSRange range2 = [str rangeOfString:@"L72.628"];
+        [attrStr setAttributes:@{
+                                 NSFontAttributeName :[UIFont systemFontOfSize:16],
+                                 NSForegroundColorAttributeName : [UIColor colorWithRed:1.0 green:120 / 255.0 blue:0 alpha:1]
+                                 } range:range2];
+        
+        NSRange range1 = [str rangeOfString:@"5"];
+        [attrStr setAttributes:@{
+                                 NSFontAttributeName :[UIFont systemFontOfSize:16],
+                                 NSForegroundColorAttributeName : [UIColor colorWithRed:69/255.0 green:170 / 255.0 blue:167/255.0 alpha:1]
+                                 } range:range1];
+        
+        _titleLabel.attributedText = attrStr;
+        _titleLabel.width = 300;
         [_titleLabel sizeToFit];
         _titleLabel.top = _imageView.bottom + 15;
         _titleLabel.centerX = _contentView.width / 2.0;
@@ -228,9 +269,20 @@
         _imageView.top = 40;
         _imageView.contentMode = UIViewContentModeScaleAspectFit;
         _imageView.hidden = NO;
-        _titleLabel.attributedText = [[NSAttributedString alloc] initWithString:@"骑士L72.628已到达" attributes:@{
-                                                                                                                           NSFontAttributeName :[UIFont systemFontOfSize:16]
-                                                                                                                           }];
+        
+        _rightImageView.hidden = NO;
+        _rightImageView.centerY = _imageView.centerY;
+        
+        NSString *str = @"騎士L72.628已到达";
+        NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc] initWithString:str attributes:@{
+                                                                                                                NSFontAttributeName :[UIFont systemFontOfSize:18]
+                                                                                                                }];
+        NSRange range = [str rangeOfString:@"L72.628"];
+        [attrStr setAttributes:@{
+                                 NSFontAttributeName :[UIFont systemFontOfSize:16],
+                                 NSForegroundColorAttributeName : [UIColor colorWithRed:1.0 green:120 / 255.0 blue:0 alpha:1]
+                                 } range:range];
+        _titleLabel.attributedText = attrStr;
         [_titleLabel sizeToFit];
         _titleLabel.top = _imageView.bottom + 15;
         _titleLabel.centerX = _contentView.width / 2.0;
@@ -249,8 +301,12 @@
         _imageView.top = 40;
         _imageView.contentMode = UIViewContentModeScaleAspectFit;
         _imageView.hidden = NO;
+        
+        _rightImageView.hidden = NO;
+        _rightImageView.centerY = _imageView.centerY;
+        
         _titleLabel.attributedText = [[NSAttributedString alloc] initWithString:@"恭喜您完成交换！" attributes:@{
-                                                                                                                           NSFontAttributeName :[UIFont systemFontOfSize:16]
+                                                                                                                           NSFontAttributeName :[UIFont systemFontOfSize:18]
                                                                                                                            }];
         [_titleLabel sizeToFit];
         _titleLabel.top = _imageView.bottom + 15;
