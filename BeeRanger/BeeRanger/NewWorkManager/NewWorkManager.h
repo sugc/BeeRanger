@@ -15,7 +15,8 @@ typedef NS_ENUM(NSInteger, TaskStatus) {
     TaskStatusBegin = 2,
     TaskStatusArrived = 3,
     TaskStatusComplete = 4,
-    TaskStatusNone = 5
+    TaskStatusCompleteAndShare = 5,
+    TaskStatusNone = 6,
 };
 
 

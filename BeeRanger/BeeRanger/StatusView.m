@@ -100,7 +100,7 @@
     [_contentView addSubview:_leftImageView];
     
     _titleLabel = [[UILabel alloc] init];
-    _titleLabel.numberOfLines = 0;
+    _titleLabel.numberOfLines = 1;
     [_contentView addSubview:_titleLabel];
     
     _button1 = [[UIButton alloc] init];
@@ -132,7 +132,13 @@
     if (staus <= self.status) {
         return;
     }
+    
     self.status = staus;
+    
+    if (staus == TaskStatusComplete) {
+        return;
+    }
+    
     
     if (!animate) {
         [self refreshWithStatus:staus msg:msg];
@@ -250,7 +256,6 @@
                                  } range:range1];
         
         _titleLabel.attributedText = attrStr;
-        _titleLabel.width = 300;
         [_titleLabel sizeToFit];
         _titleLabel.top = _imageView.bottom + 15;
         _titleLabel.centerX = _contentView.width / 2.0;
@@ -273,7 +278,7 @@
         _rightImageView.hidden = NO;
         _rightImageView.centerY = _imageView.centerY;
         
-        NSString *str = @"騎士L72.628已到达";
+        NSString *str = @"騎士L72.628已到達";
         NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc] initWithString:str attributes:@{
                                                                                                                 NSFontAttributeName :[UIFont systemFontOfSize:18]
                                                                                                                 }];
@@ -293,7 +298,7 @@
     }
     
     //完成
-    if (status == TaskStatusComplete) {
+    if (status == TaskStatusCompleteAndShare) {
         _imageView.image = [UIImage imageNamed:@"img_battery"];
         _imageView.width = 35;
         _imageView.height = 61;
@@ -305,7 +310,7 @@
         _rightImageView.hidden = NO;
         _rightImageView.centerY = _imageView.centerY;
         
-        _titleLabel.attributedText = [[NSAttributedString alloc] initWithString:@"恭喜您完成交换！" attributes:@{
+        _titleLabel.attributedText = [[NSAttributedString alloc] initWithString:@"恭喜您完成交換!" attributes:@{
                                                                                                                            NSFontAttributeName :[UIFont systemFontOfSize:18]
                                                                                                                            }];
         [_titleLabel sizeToFit];
@@ -316,7 +321,6 @@
         _button1.top = _titleLabel.bottom + 20;
         _contentView.height = _button1.bottom + 20;
     }
-    
     
 }
 
