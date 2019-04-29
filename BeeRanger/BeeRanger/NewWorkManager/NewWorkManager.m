@@ -12,7 +12,9 @@
 #import "MTAFNetWorkingRequest.h"
 #import "LocationManager.h"
 
-static NSString *const host = @"http://192.168.199.171:5000";
+//static NSString *const host = @"http://192.168.199.171:5000";
+static NSString *const host = @"http://192.168.0.12:5000";
+
 
 @interface NewWorkManager()
 
