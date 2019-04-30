@@ -25,6 +25,7 @@ typedef NS_ENUM(NSInteger, TaskStatus) {
 
 - (void)updateStatus:(TaskStatus)status isIntask:(BOOL)isInTask msg:(NSDictionary *)msg;
 
+- (void)goNextForce;
 
 @end
 
@@ -37,5 +38,7 @@ typedef NS_ENUM(NSInteger, TaskStatus) {
 + (instancetype)shareInstance;
 
 - (void)updateHelpMsg;
+
+- (void)goNextForce;
 
 @end

@@ -329,7 +329,12 @@
 }
 
 - (void)clickBtn {
-    [[NewWorkManager shareInstance] updateHelpMsg];
+    if (_forceGoNext) {
+        [[NewWorkManager shareInstance] goNextForce];
+        
+    }else {
+        [[NewWorkManager shareInstance] updateHelpMsg];
+    }
 }
 
 

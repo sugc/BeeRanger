@@ -134,6 +134,11 @@ static NSString *const host = @"http://192.168.0.12:5000";
     
 }
 
+- (void)goNextForce {
+    if ([_delegate respondsToSelector:@selector(goNextForce)]) {
+        [_delegate goNextForce];
+    }
+}
 
 
 + (NSString *)idfa {

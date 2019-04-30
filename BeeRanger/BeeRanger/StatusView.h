@@ -13,6 +13,9 @@
 
 @property (nonatomic, assign) TaskStatus status;
 
+@property (nonatomic, assign) BOOL forceGoNext;
+
 - (void)changeToStatus:(TaskStatus)staus msg:(NSDictionary *)msg animate:(BOOL)animate;
+
 
 @end

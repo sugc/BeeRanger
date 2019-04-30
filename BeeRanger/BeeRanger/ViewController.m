@@ -58,9 +58,12 @@
 
 
 - (void)layout {
-    
+    CGFloat top = 24;
+    if (@available(iOS 11.0, *)) {
+        top = [UIApplication sharedApplication].windows.firstObject.safeAreaInsets.top;
+    }
     _topBarView = [[UIView alloc] initWithFrame:CGRectMake(0,
-                                                           24,
+                                                           top,
                                                            KScreenWidth,
                                                            44)];
     _topBarView.backgroundColor = [UIColor whiteColor];
@@ -73,6 +76,7 @@
     
     UIButton *settingBtn = [[UIButton alloc] initWithFrame:CGRectMake(KScreenWidth - 15 - 44, avatarBtn.top, 44, 44)];
     [settingBtn setImage:[UIImage imageNamed:@"search"] forState:UIControlStateNormal];
+    [settingBtn addTarget:self action:@selector(setForceGoNext) forControlEvents:UIControlEventTouchUpInside];
     
     UILabel *label = [[UILabel alloc] init];
     label.textColor = [UIColor blackColor];
@@ -168,6 +172,10 @@
         status = TaskStatusRequest;
     }
     [self.statusView changeToStatus:status msg:nil animate:YES];
+}
+
+- (void)setForceGoNext {
+    _statusView.forceGoNext = YES;
 }
 
 @end
